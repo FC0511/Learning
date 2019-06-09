@@ -41,6 +41,7 @@ DELETE (请求服务器删除所请求URI)等
 ![](https://github.com/FC0511/Learning/blob/master/Http/response.png)
 
 ##如何使用 curl 命令
+
 curl -X POST -d "1234567890" -s -v -H "Frank: xxx" -- "https://www.baidu.com"
 
 语法：curl     -[参数]    --     [url]
@@ -54,6 +55,9 @@ curl -X POST -d "1234567890" -s -v -H "Frank: xxx" -- "https://www.baidu.com"
 -H/--header 自定义头信息传递给服务器
 
 -X/--request 指定什么命令
+
+curl https://www.baidu.com > ./test.js 利用curl下载文件
+
 
 
 
