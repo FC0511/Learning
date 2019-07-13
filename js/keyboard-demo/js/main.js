@@ -23,12 +23,12 @@ function createButton(id) {
     button.id = id
     button.onclick = function (e) {
         var img2 = this.previousSibling
-        var key = this['id']
+        var key = this.id
         var x = prompt('给我一个网址')
         hash[key] = x
         img2.src = 'http://' + x + '/favicon.ico'
-        img2.onerror = function (xxx) {
-            xxx.target.src = '//i.loli.net/2017/11/10/5a05afbc5e183.png'
+        img2.onerror = function (e) {
+            e.target.src = '//i.loli.net/2017/11/10/5a05afbc5e183.png'
         }
         localStorage.setItem('urls', JSON.stringify(hash))
     }
@@ -42,8 +42,8 @@ function createImage(domain) {
     } else {
         img.src = '//i.loli.net/2017/11/10/5a05afbc5e183.png'
     }
-    img.onerror = function (xxx) {
-        xxx.target.src = '//i.loli.net/2017/11/10/5a05afbc5e183.png'
+    img.onerror = function (e) {
+        e.target.src = '//i.loli.net/2017/11/10/5a05afbc5e183.png'
     }
     return img
 }
@@ -84,15 +84,15 @@ function init() {
 }
 
 function generateKeyboard(keys, hash) {
-    for (var index = 0; index < keys['length']; index = index + 1) {
+    for (var i = 0; i < keys.length; i++) {
         var div = tag('div')
         div.className = 'row'
         main.appendChild(div)
-        var row = keys[index]
-        for (var index2 = 0; index2 < row['length']; index2 = index2 + 1) {
-            var span = createSpan(row[index2])
-            var button = createButton(row[index2])
-            var img = createImage(hash[row[index2]])
+        var row = keys[i]
+        for (var j = 0; j < row.length; j++) {
+            var span = createSpan(row[j])
+            var button = createButton(row[j])
+            var img = createImage(hash[row[j]])
             var kbd = tag('kbd')
             kbd.className = 'key'
             kbd.appendChild(span)
@@ -105,7 +105,7 @@ function generateKeyboard(keys, hash) {
 
 function listenToUser(hash) {
     document.onkeypress = function (e) {
-        var key = e['key']
+        var key = e.key
         var website = hash[key]
         window.open('http://' + website, '_blank')
     }
