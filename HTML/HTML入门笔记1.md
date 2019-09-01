@@ -2,8 +2,8 @@
 
 ####  HTML 起手式 -----Emmet 感叹号
 ```
-<!DOCTYPE html> //声明文档类型为html,而不是svg/xml
-<html lang="zh-CN"> //声明语言类型，翻译参考
+<!DOCTYPE html> //声明文档类型为html
+<html lang="zh-CN"> //声明语言类型
   <head>
     <meta charset="UTF-8" /> //文件的字符编码
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /> //兼容手机
