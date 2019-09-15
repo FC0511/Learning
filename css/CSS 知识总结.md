@@ -1,5 +1,5 @@
 #CSS 知识总结
-###1.浏览器渲染原理
+### 1.浏览器渲染原理
 
 1.DOM 树与 CSSOM 树合并后形成渲染树。  
 2.渲染树只包含渲染网页所需的节点。  
@@ -8,7 +8,7 @@
 
 可以通过浏览器的控制台的Rendering下的Paint flashing 观察页面元素的渲染
 
-###2.CSS 动画的两种做法（transition 和 animation）
+### 2.CSS 动画的两种做法（transition 和 animation）
 ```css
 .div{
     position: absolute;
