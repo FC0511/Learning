@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>canvas</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+    </style>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500"></canvas>
+
+<script>
+    let canvas = document.querySelector("#canvas");
+    canvas.width = document.documentElement.clientWidth;
+    canvas.height = document.documentElement.clientHeight;
+
+    let ctx = canvas.getContext('2d');
+    ctx.strokeStyle = "#0000ff";
+    ctx.lineWidth = 5;
+    ctx.lineCap = 'round';
+
+
+    let isDraw = false; // 是否开始绘制
+    let lastPoint = null; // 初试坐标
+    let isTouchDevice = 'ontouchstart' in document.documentElement; // 判断是否为移动设备
+
+    if (isTouchDevice) {
+        canvas.ontouchstart = (e) => {
+            lastPoint = [e.touches[0].clientX, e.touches[0].clientY];
+        }
+
+        canvas.ontouchmove = (e) => {
+            let x = e.touches[0].clientX,
+                y = e.touches[0].clientY;
+
+            ctx.beginPath();
+            ctx.moveTo(lastPoint[0], lastPoint[1]);
+            // ctx.moveTo(0, 0);
+            ctx.lineTo(x, y);
+            ctx.stroke();
+
+            lastPoint = [x, y];
+        }
+    } else {
+        canvas.onmousedown = (e) => {
+            isDraw = true;
+            lastPoint = [e.clientX, e.clientY];
+        }
+
+        canvas.onmousemove = (e) => {
+            let x = e.clientX,
+                y = e.clientY;
+
+            if (isDraw) {
+                ctx.beginPath();
+                ctx.moveTo(lastPoint[0], lastPoint[1]);
+                // ctx.moveTo(0, 0);
+                ctx.lineTo(x, y);
+                ctx.stroke();
+
+                lastPoint = [x, y];
+            }
+        }
+
+        canvas.onmouseup = (e) => {
+            isDraw = false;
+        }
+    }
+
+
+</script>
+</body>
+</html>
