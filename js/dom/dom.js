@@ -30,14 +30,14 @@ window.dom = {
         }
         return array;
     },
-    attr(node, name, value) { // 重载
+    attr(node, name, value) {
         if (arguments.length === 3) {
             node.setAttribute(name, value);
         } else if (arguments.length === 2) {
             return node.getAttribute(name);
         }
     },
-    text(node, string) { // 适配
+    text(node, string) {
         if (arguments.length === 2) {
             if ('innerText' in node) {
                 node.innerText = string;
