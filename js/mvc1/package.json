@@ -1,0 +1,12 @@
+{
+  "name": "mvc1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "parcel build src/index.html --no-minify --public-url ./  -d dist"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
+}
