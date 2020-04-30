@@ -7,6 +7,6 @@
     "build": "parcel build src/index.html --no-minify --public-url ./  -d dist"
   },
   "dependencies": {
-    "jquery": "^3.4.1"
+    "jquery": "^3.5.0"
   }
 }
